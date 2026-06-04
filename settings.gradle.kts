@@ -4,7 +4,7 @@ pluginManagement {
     includeBuild("gradle/build-logic")
     repositories {
         google()
-        central()
+        mavenCentral()
         gradlePluginPortal()
         maven(url = "https://www.jitpack.io")
     }
@@ -21,7 +21,7 @@ dependencyResolutionManagement {
     @Suppress("UnstableApiUsage")
     repositories {
         google()
-        central()
+        mavenCentral()
         maven(url = "https://www.jitpack.io")
     }
 }
