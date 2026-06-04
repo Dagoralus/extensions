@@ -30,26 +30,33 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 rootProject.name = "Keiyoushi"
 
+/**
+ * Add or remove modules to load as needed for local development here.
+ */
 loadAllIndividualExtensions()
+// loadIndividualExtension("all", "mangadex")
 
+/**
+ * ===================================== COMMON CONFIGURATION ======================================
+ */
 include(":core")
 
+// Load all modules under /lib
 File(rootDir, "lib").eachDir { include("lib:${it.name}") }
 
+// Load all modules under /lib-multisrc
 File(rootDir, "lib-multisrc").eachDir { include("lib-multisrc:${it.name}") }
 
+/**
+ * ======================================== HELPER FUNCTION ========================================
+ */
 fun loadAllIndividualExtensions() {
-    val idiomasPermitidos = listOf("all", "en", "ja", "ko", "pt", "zh")
-
     File(rootDir, "src").eachDir { dir ->
-        if (dir.name in idiomasPermitidos) {
-            dir.eachDir { subdir ->
-                include("src:${dir.name}:${subdir.name}")
-            }
+        dir.eachDir { subdir ->
+            include("src:${dir.name}:${subdir.name}")
         }
     }
 }
-
 fun loadIndividualExtension(lang: String, name: String) {
     include("src:$lang:$name")
 }
