@@ -31,7 +31,7 @@ class NexusToons :
 
     override val name = "Nexus Toons"
 
-    override val baseUrl = "https://nx-toons.xyz"
+    override val baseUrl = "https://nexustoons.com/"
 
     override val supportsLatest = true
 
